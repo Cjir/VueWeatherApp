@@ -19,7 +19,7 @@
         </div>
 
         <div class="weather-box">
-          <div class="temp">{{ Math.round(weather.main.temp) }}°c</div>
+          <div class="temp">{{ Math.round(weather.main.temp) }}°f</div>
           <div class="weather">{{ weather.weather[0].main }}</div>
         </div>
       </div>
@@ -41,7 +41,7 @@ export default {
   methods: {
     fetchWeather (e) {
       if (e.key == "Enter") {
-        fetch(`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`)
+        fetch(`${this.url_base}weather?q=${this.query}&APPID=${this.api_key}`)
           .then(res => {
             return res.json();
           }).then(this.setResults);
